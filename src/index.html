@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Desktop</title>
+    <link rel="stylesheet" href="http://localhost:5000/static/bundle.css">
+</head>
+<body>
+<div id="main"></div>
+
+<script>
+    (function() {
+        const script = document.createElement('script');
+        script.src = 'http://localhost:5000/static/bundle.js';
+        document.write(script.outerHTML)
+    }())
+</script>
+</body>
+</html>

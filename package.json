@@ -1,0 +1,55 @@
+{
+  "name": "desktop",
+  "version": "1.0.0",
+  "description": "electron desktop",
+  "main": "src/main.js",
+  "scripts": {
+    "hot-server": "node -r babel-register server/dev-server",
+    "hot-start": "electron -r babel-register ./src/main",
+    "start": "webpack && electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Paul-Long/Desktop.git"
+  },
+  "keywords": [
+    "electron",
+    "desktop"
+  ],
+  "author": "Paul",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Paul-Long/Desktop/issues"
+  },
+  "homepage": "https://github.com/Paul-Long/Desktop#readme",
+  "dependencies": {
+    "electron": "^2.0.0",
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2"
+  },
+  "devDependencies": {
+    "autoprefixer": "^8.4.1",
+    "babel": "^6.23.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "css-loader": "^0.28.11",
+    "cssnano": "^3.10.0",
+    "electron-package": "^0.1.0",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "is-electron-renderer": "^2.0.1",
+    "less": "^3.0.2",
+    "less-loader": "^4.1.0",
+    "postcss-cli": "^5.0.0",
+    "postcss-loader": "^2.1.4",
+    "react-hot-loader": "^4.1.2",
+    "style-loader": "^0.21.0",
+    "webpack": "^4.6.0",
+    "webpack-cli": "^2.1.2",
+    "webpack-dev-server": "^3.1.4",
+    "webpack-target-electron-renderer": "^0.4.0"
+  }
+}
