@@ -4,17 +4,28 @@ import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
 module.exports = {
   mode: 'development',
-  devtool: 'eval',
+  devtool: 'eval-source-map',
   target: 'electron-renderer',
   entry: [
     'webpack-dev-server/client?http://localhost:5000',
     'webpack/hot/only-dev-server',
-    './src/containers/index'
+    './src/index'
   ],
   output: {
     path: path.join(__dirname, 'dist'),
     publicPath: 'http://localhost:3000/static/',
     filename: 'bundle.js'
+  },
+  resolve: {
+    modules: [
+      path.join(__dirname, 'src'),
+      'node_modules'
+    ],
+    alias: {
+      '@src': path.resolve(__dirname, 'src'),
+      '@containers': path.resolve(__dirname, 'src/containers'),
+      '@components': path.resolve(__dirname, 'src/components')
+    }
   },
   plugins: [
     new ExtractTextPlugin({filename: 'bundle.css', allChunks: true}),
@@ -23,7 +34,6 @@ module.exports = {
   module: {
     rules: [{
       test: /\.(js|jsx)$/,
-      exclude: /node_modules/,
       use: ['babel-loader']
     }, {
       test: /\.(less|css)$/,
