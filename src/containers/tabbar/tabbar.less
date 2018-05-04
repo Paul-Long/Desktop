@@ -1,0 +1,41 @@
+@import (reference) "../../themes/generals";
+
+.ad-tabbar {
+  position: absolute;
+  top: 30px;
+  left: 0;
+  right: 0;
+  height: 30px;
+  border-top: 1px solid #000000;
+  background: #172422;
+  color: #FFEBC8;
+  &:extend(.flex-row);
+  justify-content: space-between;
+  &-left, &-center, &-right {
+    height: 100%;
+  }
+  &-left {
+    &:extend(.flex-center);
+    flex-direction: row;
+    width: 80px;
+    border-right: 1px solid #000000;
+    cursor: pointer;
+    .ad-icon-caretDown {
+      margin-top: -8px;
+      margin-left: 7px;
+    }
+    .ad-icon-caretUp {
+      margin-left: 7px;
+      margin-top: 8px;
+    }
+  }
+  &-center {
+    flex: 1;
+  }
+  &-right {
+    &:extend(.flex-center);
+    width: 120px;
+    border-left: 1px solid #000000;
+    background-image: linear-gradient(-180deg, #214F47 0%, #193D37 99%);
+  }
+}

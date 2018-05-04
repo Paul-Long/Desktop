@@ -24,6 +24,7 @@
   "homepage": "https://github.com/Paul-Long/Desktop#readme",
   "dependencies": {
     "electron": "^2.0.0",
+    "moment": "^2.22.1",
     "normalize.css": "^8.0.0",
     "prop-types": "^15.6.1",
     "react": "^16.3.2",
