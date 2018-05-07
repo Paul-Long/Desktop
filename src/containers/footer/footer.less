@@ -1,17 +1,18 @@
 @import (reference) "../../themes/generals";
+@import (reference) "../../themes/variables";
 
 .ad-footer {
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
-  height: 30px;
+  height: @row-height;
   background: #172422;
   &:extend(.flex-row);
   justify-content: space-between;
   &-clock {
     color: #61958D;
-    height: 30px;
+    height: @row-height;
     &:extend(.flex-row);
     border-right: 1px solid #000000;
     span {
@@ -19,14 +20,29 @@
       margin-right: 5px;
     }
   }
+  &-left {
+    &:extend(.flex-row);
+  }
   &-right {
     &:extend(.flex-row);
     justify-content: flex-end;
     min-width: 200px;
-    background: #193D37;
-    height: 30px;
+    background: @item-background;
+    height: @row-height;
     .ad-icon-tiles {
       color: #FFFFFF;
     }
   }
+  &-reset {
+    width: @row-height;
+    height: @row-height;
+  }
+  &-reset.loading {
+    animation: circle 1s infinite linear;
+  }
+}
+
+@-webkit-keyframes circle{
+  0%{ transform: rotate(0deg); }
+  100%{ transform: rotate(360deg); }
 }

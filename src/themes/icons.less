@@ -121,3 +121,29 @@
   &:extend(.ad-icon-caretRight all);
   transform: rotate(90deg);
 }
+
+.ad-icon-reset {
+  width: 14px;
+  height: 14px;
+  color: #FFFFFF;
+  border-radius: 50%;
+  border-width: 1px;
+  border-style: solid;
+  border-left-color: transparent;
+  margin: 0;
+  position: relative;
+  &:before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    left: -1*3px;
+    bottom: 0;
+    border-width: 3px;
+    border-style: solid;
+    border-right-color: transparent;
+    border-left-color: transparent;
+    border-bottom-color: transparent;
+    transform: rotate(135deg);
+  }
+}

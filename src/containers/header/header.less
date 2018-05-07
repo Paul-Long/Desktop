@@ -1,11 +1,12 @@
-@import "../../themes/mixins";
+@import (reference) "../../themes/mixins";
+@import (reference) "../../themes/variables";
 
 .ad-header {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  height: 30px;
+  height: @row-height;
   background: #172422;
   color: #FFFFFF;
   display: flex;
@@ -20,7 +21,7 @@
   }
   &-space {
     flex: 1;
-    height: 30px;
+    height: @row-height;
     -webkit-app-region: drag;
   }
   &-action {
@@ -30,12 +31,12 @@
     border-left: 1px solid #000000;
   }
   &-min, &-max, &-close {
-    width: 30px;
-    height: 30px;
+    width: @row-height;
+    height: @row-height;
     & > * {
       position: relative;
-      width: 30px;
-      height: 30px;
+      width: @row-height;
+      height: @row-height;
     }
   }
   &-min, &-max {

@@ -5,7 +5,7 @@ type ClockProps = {
   className: string
 }
 
-class Clock extends React.PureComponent<ClockProps> {
+class Clock extends React.Component<ClockProps> {
   _FORMAT = 'YYYY/MM/DD ddd HH:mm:ss';
   state = {
     time: moment().format(this._FORMAT)

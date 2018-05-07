@@ -1,0 +1,74 @@
+@import (reference) "../../themes/generals";
+@import (reference) "../../themes/variables";
+
+.ad-tabs-wrapper {
+  height: @row-height;
+  &:extend(.flex-row);
+  justify-content: flex-start;
+}
+
+.ad-tabs {
+  &:extend(.flex-row);
+  justify-content: flex-start;
+  margin-left: 10px;
+}
+
+.ad-tab {
+  list-style: none;
+  display: inline-block;
+  min-width: @tab-min-width;
+  height: @tab-height;
+  background: @item-background;
+  border-radius: 2px;
+  margin-right: 5px;
+  line-height: @tab-height;
+  text-align: center;
+  position: relative;
+
+  &-close {
+    &:extend(.flex-center);
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: @tab-height;
+    height: @tab-height;
+    &:hover {
+      background: #0E1A18;
+    }
+    &:active {
+      .ad-icon-close {
+        &:after {
+          height: 9px;
+        }
+        &:before {
+          width: 9px;
+        }
+      }
+    }
+  }
+
+  &:hover {
+    .ad-tab-close {
+      display: flex;
+    }
+  }
+  &-add {
+    width: 30px;
+    height: @tab-height;
+    border-radius: 2px;
+    background: @item-background;
+    color: #FFFFFF;
+    &:active {
+      background: #136C5E;
+      .ad-icon-plus {
+        &:after {
+          height: 9px;
+        }
+        &:before {
+          width: 9px;
+        }
+      }
+    }
+  }
+}

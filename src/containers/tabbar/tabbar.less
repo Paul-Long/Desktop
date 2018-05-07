@@ -1,12 +1,12 @@
 @import (reference) "../../themes/generals";
+@import (reference) "../../themes/variables";
 
 .ad-tabbar {
   position: absolute;
-  top: 30px;
+  top: @row-height + 1px;
   left: 0;
   right: 0;
-  height: 30px;
-  border-top: 1px solid #000000;
+  height: @row-height;
   background: #172422;
   color: #FFEBC8;
   &:extend(.flex-row);
@@ -36,6 +36,6 @@
     &:extend(.flex-center);
     width: 120px;
     border-left: 1px solid #000000;
-    background-image: linear-gradient(-180deg, #214F47 0%, #193D37 99%);
+    background-image: linear-gradient(-180deg, #214F47 0%, @item-background 99%);
   }
 }
