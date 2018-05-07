@@ -1,3 +1,4 @@
+@import (reference) "../../themes/mixins";
 @import (reference) "../../themes/generals";
 @import (reference) "../../themes/variables";
 
@@ -7,14 +8,15 @@
   left: 0;
   right: 0;
   height: @row-height;
-  background: #172422;
+  background: @footer-background;
   &:extend(.flex-row);
   justify-content: space-between;
   &-clock {
-    color: #61958D;
+    color: @footer-color;
     height: @row-height;
     &:extend(.flex-row);
     border-right: 1px solid #000000;
+    padding-left: 5px;
     span {
       margin-left: 5px;
       margin-right: 5px;
@@ -33,16 +35,63 @@
       color: #FFFFFF;
     }
   }
-  &-reset {
+  &-reset, &-link, &-help {
     width: @row-height;
     height: @row-height;
+    border-right: 1px solid #000000;
+    cursor: pointer;
   }
+  &-reset {
+    & > .ad-icon-reset {
+      color: @footer-color;
+    }
+ }
   &-reset.loading {
     animation: circle 1s infinite linear;
   }
+  &-link {
+    color: #7ED321;
+    &:active {
+      .ad-icon-chain {
+        width: 7px;
+        &:before, &:after {
+          .goldenRectL(5px);
+        }
+        &:before {
+          right: -1*3px;
+        }
+        &:after {
+          left: -1*3px;
+        }
+      }
+    }
+  }
+  &-help {
+    &:extend(.flex-center);
+  }
+  &-help > span {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    line-height: 14px;
+    text-align: center;
+    border-radius: 50%;
+    font-weight: bold;
+    background: @footer-color;
+    color: @footer-background;
+    &:active {
+      width: 12px;
+      height: 12px;
+      line-height: 12px;
+    }
+  }
 }
 
-@-webkit-keyframes circle{
-  0%{ transform: rotate(0deg); }
-  100%{ transform: rotate(360deg); }
+@-webkit-keyframes circle {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

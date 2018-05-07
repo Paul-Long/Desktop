@@ -13,6 +13,8 @@ class Footer extends React.PureComponent<FooterProps> {
     return (
       <div className={`${prefixCls}-footer`}>
         <div className={`${prefixCls}-footer-left`}>
+          <IconButton className={`${prefixCls}-footer-link`} type='chain' />
+          <div className={`${prefixCls}-footer-help`}><span>?</span></div>
           <IconButton className={`${prefixCls}-footer-reset`} type='reset' />
           <Clock className={`${prefixCls}-footer-clock`} />
         </div>

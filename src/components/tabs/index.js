@@ -1,20 +1,25 @@
 import React from 'react';
+import classNames from 'classnames';
 import Tab from './Tab';
 import IconButton from '@components/iconbutton';
 import './tabs.less';
 
 type TabsProps = {
-  tabs: Array
+  tabs: Array,
+  active: string
 }
 
 class Tabs extends React.PureComponent<TabsProps> {
 
   renderTab = () => {
     const {
-      tabs
+      tabs,
+      active
     } = this.props;
     return tabs.map(tab => Tab({
-      className: 'ad-tab',
+      className: classNames('ad-tab', {
+        active: tab.tabId === active
+      }),
       tab
     }));
   };

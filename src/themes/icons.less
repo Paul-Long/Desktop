@@ -147,3 +147,24 @@
     transform: rotate(135deg);
   }
 }
+
+.ad-icon-chain {
+  width: 8px;
+  height: 2px;
+  box-shadow: inset 0 0 0 16px;
+  margin: 0;
+  position: relative;
+  &:before, &:after {
+    content: '';
+    .goldenRectL(6px);
+    &:extend(.stickCenterV);
+    &:extend(.icon-stroke);
+    border-radius: 4px;
+  }
+  &:before {
+    right: -1*4px;
+  }
+  &:after {
+    left: -1*4px;
+  }
+}

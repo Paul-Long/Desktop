@@ -5,7 +5,24 @@
   transform: translate(-50%, -50%);
 }
 
+.stickCenterH() {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.stickCenterV() {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
 .square(@length) {
   width: @length;
   height: @length;
+}
+
+.goldenRectL(@width) {
+  width: @width;
+  height: ceil(@width/1.61803398875);
 }

@@ -13,6 +13,10 @@ class App extends React.PureComponent<AppProps> {
   static defaultProps = {
     prefixCls: 'ad'
   };
+  constructor(props) {
+    super(props);
+    props.history.push('/home');
+  }
 
   render() {
     const {

@@ -17,7 +17,7 @@ class TabBar extends React.PureComponent<TabBarProps> {
       <div className={cls}>
         <Desktop prefixCls={prefixCls} className={`${cls}-left`} />
         <div className={`${cls}-center`}>
-          <Tabs tabs={tabs} />
+          <Tabs tabs={tabs} active={'home'} />
         </div>
         <div className={`${cls}-right`}>
           联系客服
@@ -30,6 +30,6 @@ class TabBar extends React.PureComponent<TabBarProps> {
 export default TabBar;
 
 const tabs = [
-  {text: '首页', tabId: 'start'},
+  {text: '首页', tabId: 'home'},
   {text: '新标签页', tabId: 'new'}
 ];
