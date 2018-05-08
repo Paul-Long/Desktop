@@ -9,7 +9,6 @@ let mainWindow;
 
 function createWindow() {
   mainWindow = new BrowserWindow({width: 1366, height: 768, frame: false, titleBarStyle: 'hiddenInset'});
-
   mainWindow.loadURL(url.format({
     pathname: path.join(__dirname, 'index.html'),
     protocol: 'file:',
@@ -19,6 +18,8 @@ function createWindow() {
   mainWindow.on('closed', function () {
     mainWindow = null
   });
+  BrowserWindow.addDevToolsExtension('C:\\Users\\baolong.hou\\AppData\\Local\\Google\\Chrome\\User Data\\Default\\Extensions\\lmhkpmbekcpmknklioeibfkpmmfibljd\\2.15.2_0');
+  BrowserWindow.addDevToolsExtension('C:\\Users\\baolong.hou\\AppData\\Local\\Google\\Chrome\\User Data\\Default\\Extensions\\fmkadmapgofadopljbjfkapdkoienihi\\3.2.1_0');
 }
 
 app.on('ready', createWindow);

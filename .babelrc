@@ -5,7 +5,13 @@
     "flow",
     "react"
   ],
-  "env": {
-    "development": {}
-  }
+  "plugins": [
+    [
+      "transform-runtime",
+      {
+        "polyfill": true,
+        "regenerator": true
+      }
+    ]
+  ]
 }

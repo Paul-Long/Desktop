@@ -1,6 +1,11 @@
 import './themes';
-import React from 'react';
-import ReactDOM from 'react-dom';
 import Routes from './routes';
+import Helper from 'react-redux-helper';
+import models from './models';
 
-ReactDOM.render(<Routes />, document.getElementById('main'));
+const app = new Helper();
+app.router(Routes);
+app.reducerMiddleware(function (state, action) {
+});
+app.models(models);
+app.start('#main');
