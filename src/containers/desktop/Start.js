@@ -1,7 +1,9 @@
 import React from 'react';
 
 type StartProps = {
-  className: string
+  prefixCls: string,
+  className: string,
+  onMaskClick: Function
 }
 
 class Start extends React.PureComponent<StartProps> {
@@ -9,13 +11,22 @@ class Start extends React.PureComponent<StartProps> {
     event.stopPropagation();
   };
 
+  handleContentClick = e => {
+    e.stopPropagation();
+  };
+
   render() {
     const {
-      className
+      prefixCls,
+      className,
+      onMaskClick
     } = this.props;
     return (
       <div className={className} onClick={this.handleClick}>
+        <div className={`${prefixCls}-content`} onClick={this.handleContentClick}>
 
+        </div>
+        <div className={`${prefixCls}-mask`} onClick={onMaskClick} />
       </div>
     )
   }

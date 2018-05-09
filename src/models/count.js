@@ -12,6 +12,14 @@ export default [
       minus(state, action) {
         return state - 1
       }
+    },
+    subscriptions: {
+      setup({ dispatch, history }) {
+        console.log(history);
+        return history.listen(({ pathname, query }) => {
+          console.log(pathname, query);
+        });
+      }
     }
   }
 ]

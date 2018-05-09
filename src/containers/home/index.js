@@ -1,5 +1,5 @@
 import React from 'react';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 
 type HomeProps = {
   count: number,
@@ -11,17 +11,25 @@ class Home extends React.PureComponent<HomeProps> {
     const {
       dispatch
     } = this.props;
+    const buttonStyle = {
+      width: 30,
+      height: 30,
+      lineHeight: '30px',
+      fontSize: 18,
+      textAlign: 'center'
+    };
     return (
       <div>
-        <div>{this.props.count}</div>
+        <h1>Home</h1>
+        <h3 style={{marginBottom: 10}}>{this.props.count}</h3>
         <button
-          style={{width: 20, height: 20, lineHeight: '20xp', textAlign: 'center'}}
-          onClick={() => dispatch({type: 'count.add'})}
+          style={buttonStyle}
+          onClick={() => dispatch({ type: 'count.add' })}
         >+
         </button>
         <button
-          style={{width: 20, height: 20, lineHeight: '20xp', textAlign: 'center'}}
-          onClick={() => dispatch({type: 'count.minus'})}
+          style={buttonStyle}
+          onClick={() => dispatch({ type: 'count.minus' })}
         >-
         </button>
       </div>

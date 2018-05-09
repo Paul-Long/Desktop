@@ -5,19 +5,40 @@
   position: relative;
   cursor: pointer;
   &-start {
-    position: absolute;
-    top: @row-height;
+    position: fixed;
+    top: 2 * @row-height + 2px;
+    left: 0;
     right: 100%;
+    bottom: @row-height + 1px;
     z-index: @desktop-z-index;
-    background: @item-background;
-    min-width: 500px;
-    min-height: 300px;
     cursor: default;
-    opacity: 0;
-    transition: all .3s;
+    &-content, &-mask {
+      position: absolute;
+      left: 0;
+      top: 0;
+      right: 100%;
+    }
+    &-content {
+      max-width: 600px;
+      min-height: 400px;
+      z-index: @start-content-z-index;
+      background: @item-background;
+      opacity: 0;
+      transition: all .3s;
+    }
+    &-mask {
+      bottom: 0;
+      z-index: @start-mask-z-index;
+    }
   }
   &-start.active {
-    left: 0;
-    opacity: 1;
+    right: 0;
+    .ad-desktop-start-content {
+      right: 0;
+      opacity: 1;
+    }
+    .ad-desktop-start-mask {
+      right: 0;
+    }
   }
 }

@@ -3,17 +3,19 @@ import IconButton from '@components/iconbutton';
 
 type TabProps = {
   className: string,
-  tab: Object
+  tab: Object,
+  onClick: Function
 };
 
 function Tab(props: TabProps) {
   const {
     className,
-    tab
+    tab,
+    onClick
   } = props;
   const {tabId, text} = tab;
   return (
-    <li key={tabId} className={className}>
+    <li key={tabId} className={className} onClick={onClick}>
       {text}
       <IconButton className='ad-tab-close' type='close' />
     </li>
