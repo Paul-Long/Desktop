@@ -1,16 +1,19 @@
-import React from 'react';
 import './header.less';
+import React from 'react';
+import IconButton from '@components/iconbutton';
 
 type HeaderProps = {
   prefixCls: string,
-  title: string
+  title: string,
+  ipc: any
 }
 
 class Header extends React.PureComponent<HeaderProps> {
   render() {
     const {
       prefixCls,
-      title
+      title,
+      ipc
     } = this.props;
     const cls = `${prefixCls}-header`;
     return (
@@ -20,16 +23,10 @@ class Header extends React.PureComponent<HeaderProps> {
         </div>
         <div className={`${cls}-space`} />
         <div className={`${cls}-action`}>
-          <div className={`${cls}-min`}>
-            <div className='ad-icon-minus' />
-          </div>
-          <div className={`${cls}-max`}>
-            <div className='ad-icon-square' />
-          </div>
+          <IconButton className={`${cls}-min`} type='minus' onClick={ipc.minimize} />
+          <IconButton className={`${cls}-max`} type='square' onClick={ipc.maximize} />
 
-          <div className={`${cls}-close`}>
-            <div className='ad-icon-close' />
-          </div>
+          <IconButton className={`${cls}-close`} type='close' onClick={ipc.close} />
         </div>
       </div>
     )

@@ -4,8 +4,8 @@ import { Route } from 'react-router-dom';
 import Header from '@containers/header';
 import TabBar from '@containers/tabbar';
 import Footer from '@containers/footer';
-import Home from '@containers/home';
 import contents from '@constants/contents';
+import Ipc from '@utils/ipc';
 
 type AppProps = {
   prefixCls: string
@@ -22,6 +22,7 @@ class App extends React.PureComponent<AppProps> {
     if (pathname !== '/') {
       props.history.push('/');
     }
+    this.ipc = new Ipc();
   }
 
   componentDidMount() {
@@ -30,6 +31,10 @@ class App extends React.PureComponent<AppProps> {
     }, 2000);
   }
 
+  handleClose = () => {
+    this.ipc.close();
+  };
+
   render() {
     const {
       prefixCls,
@@ -37,7 +42,11 @@ class App extends React.PureComponent<AppProps> {
     } = this.props;
     return (
       <div className={prefixCls}>
-        <Header prefixCls={prefixCls} title='Electron Desktop' />
+        <Header
+          prefixCls={prefixCls}
+          title='Electron Desktop'
+          ipc={this.ipc}
+        />
         <TabBar prefixCls={prefixCls} history={history} />
         <div className={`${prefixCls}-content`}>
           {
