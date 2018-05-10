@@ -3,7 +3,13 @@ import path from 'path';
 import url from 'url';
 
 export default function () {
-  let loginWindow = new BrowserWindow({ width: 300, height: 400, frame: false, titleBarStyle: 'hiddenInset' });
+  let loginWindow = new BrowserWindow({
+    width: 300,
+    height: 400,
+    frame: false,
+    titleBarStyle: 'hiddenInset',
+    transparent: true
+  });
   loginWindow.loadURL(url.format({
     pathname: path.join(__dirname, 'index.html'),
     protocol: 'file:',
@@ -14,4 +20,4 @@ export default function () {
     loginWindow = null
   });
   return loginWindow;
-}
+};

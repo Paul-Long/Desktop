@@ -1,7 +1,6 @@
-import { BrowserWindow, ipcMain } from 'electron';
+import {BrowserWindow} from 'electron';
 import path from 'path';
 import url from 'url';
-
 
 export default function () {
   let mainWindow = new BrowserWindow({ width: 1366, height: 768, frame: false, titleBarStyle: 'hiddenInset' });
@@ -15,4 +14,4 @@ export default function () {
     mainWindow = null
   });
   return mainWindow;
-}
+};

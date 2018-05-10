@@ -1,6 +1,6 @@
 import { app, ipcMain, BrowserWindow } from 'electron';
-import createMainWindow from './main/index';
-import createLoginWin from './login/index';
+import createMainWindow from './main';
+import createLoginWin from './login';
 import { mainChannels, loginChannels } from './config';
 
 let mainWin, loginWin;

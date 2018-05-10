@@ -4,9 +4,9 @@
   "description": "electron desktop",
   "main": "windows/index.js",
   "scripts": {
-    "hot-server": "node -r babel-register server/dev-server",
-    "hot-start": "electron -r babel-register windows/index",
-    "start": "webpack && electron windows/index"
+    "hot-server": "node -r babel-register ./server/dev-server",
+    "hot-start": "electron -r babel-register .",
+    "start": "webpack && electron -r babel-register ."
   },
   "repository": {
     "type": "git",

@@ -1,4 +1,6 @@
 @import (reference) "../../themes/variables";
+@import (reference) "../../themes/generals";
+
 .ad-login {
   background: #000000;
   position: fixed;
@@ -7,6 +9,10 @@
   right: 0;
   bottom: 0;
   color: @font-color;
+  border-radius: 5px;
+  &:extend(.flex-center);
+  flex-direction: column;
+
   &-close {
     background: #4E161C;
     width: @row-height;
@@ -14,6 +20,7 @@
     position: absolute;
     right: 0;
     top: 0;
+    border-top-right-radius: 5px;
     &:active {
       .ad-icon-close {
         &:after {
@@ -24,5 +31,16 @@
         }
       }
     }
+  }
+  &-btn {
+    background: #136C5E;
+    min-width: 150px;
+    height: 24px;
+    border: 0;
+    border-radius: 4px;
+    color: #FFFFFF;
+  }
+  & > .ad-input {
+    margin-bottom: 10px;
   }
 }
