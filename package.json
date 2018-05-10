@@ -2,10 +2,10 @@
   "name": "desktop",
   "version": "1.0.0",
   "description": "electron desktop",
-  "main": "src/main.js",
+  "main": "windows/index.js",
   "scripts": {
     "hot-server": "node -r babel-register server/dev-server",
-    "hot-start": "electron -r babel-register ./src/main",
+    "hot-start": "electron -r babel-register windows/index",
     "start": "webpack && electron ."
   },
   "repository": {

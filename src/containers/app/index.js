@@ -22,7 +22,9 @@ class App extends React.PureComponent<AppProps> {
     if (pathname !== '/') {
       props.history.push('/');
     }
-    this.ipc = new Ipc();
+    this.ipc = new Ipc({
+      prefix: 'main'
+    });
   }
 
   componentDidMount() {

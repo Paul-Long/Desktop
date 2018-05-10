@@ -1,27 +1,20 @@
 import { ipcRenderer } from 'electron';
 
-function Ipc() {
-  function close() {
-    ipcRenderer.send('asynchronous-close');
-  }
-  
-  function minimize() {
-    ipcRenderer.send('asynchronous-minimize');
-  }
+type Option = {
+  prefix: string
+};
 
-  function unMaximize() {
-    ipcRenderer.send('asynchronous-unmaximize');
-  }
+function Ipc(opts: Option) {
+  const {
+    prefix
+  } = opts;
 
-  function maximize() {
-    ipcRenderer.send('asynchronous-maximize');
+  function send(channel: string) {
+    ipcRenderer.send(`${prefix}-${channel}`);
   }
 
   return {
-    close,
-    unMaximize,
-    maximize,
-    minimize
+    send
   }
 }
 

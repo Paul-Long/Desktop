@@ -6,19 +6,19 @@ module.exports = {
   mode: 'development',
   devtool: 'eval-source-map',
   target: 'electron-renderer',
-  entry: [
-    'webpack-dev-server/client?http://localhost:5000',
-    'webpack/hot/only-dev-server',
-    './src/index'
-  ],
+  entry: {
+    main: './src/entries/index',
+    login: './src/entries/login'
+  },
   output: {
     path: path.join(__dirname, 'dist'),
     publicPath: 'http://localhost:3000/static/',
-    filename: 'bundle.js'
+    filename: '[name].js'
   },
   resolve: {
     modules: [
       path.join(__dirname, 'src'),
+      path.join(__dirname, 'windows'),
       'node_modules'
     ],
     alias: {
@@ -26,11 +26,13 @@ module.exports = {
       '@constants': path.resolve(__dirname, 'src/constants'),
       '@containers': path.resolve(__dirname, 'src/containers'),
       '@components': path.resolve(__dirname, 'src/components'),
-      '@utils': path.resolve(__dirname, 'src/utils')
+      '@utils': path.resolve(__dirname, 'src/utils'),
+      '@routes': path.resolve(__dirname, 'src/routes'),
+      '@models': path.resolve(__dirname, 'src/models')
     }
   },
   plugins: [
-    new ExtractTextPlugin({filename: 'bundle.css', allChunks: true}),
+    new ExtractTextPlugin({ filename: '[name].css', allChunks: true }),
     new webpack.HotModuleReplacementPlugin()
   ],
   module: {

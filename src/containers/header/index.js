@@ -9,6 +9,18 @@ type HeaderProps = {
 }
 
 class Header extends React.PureComponent<HeaderProps> {
+  state = {
+    winMax: false
+  };
+
+  handleMax = () => {
+    const { ipc } = this.props;
+    const { winMax } = this.state;
+    this.setState({ winMax: !winMax }, () => {
+      ipc.send(winMax ? 'unmaximize' : 'maximize');
+    });
+  };
+
   render() {
     const {
       prefixCls,
@@ -23,10 +35,9 @@ class Header extends React.PureComponent<HeaderProps> {
         </div>
         <div className={`${cls}-space`} />
         <div className={`${cls}-action`}>
-          <IconButton className={`${cls}-min`} type='minus' onClick={ipc.minimize} />
-          <IconButton className={`${cls}-max`} type='square' onClick={ipc.maximize} />
-
-          <IconButton className={`${cls}-close`} type='close' onClick={ipc.close} />
+          <IconButton className={`${cls}-min`} type='minus' onClick={() => ipc.send('minimize')} />
+          <IconButton className={`${cls}-max`} type='square' onClick={this.handleMax} />
+          <IconButton className={`${cls}-close`} type='close' onClick={() => ipc.send('close')} />
         </div>
       </div>
     )

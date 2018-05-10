@@ -1,0 +1,28 @@
+@import (reference) "../../themes/variables";
+.ad-login {
+  background: #000000;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  color: @font-color;
+  &-close {
+    background: #4E161C;
+    width: @row-height;
+    height: @row-height;
+    position: absolute;
+    right: 0;
+    top: 0;
+    &:active {
+      .ad-icon-close {
+        &:after {
+          height: 9px;
+        }
+        &:before {
+          width: 9px;
+        }
+      }
+    }
+  }
+}

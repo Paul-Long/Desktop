@@ -1,10 +1,10 @@
-import './themes';
-import Routes from './routes';
+import '../themes/index';
+import router from '@routes';
 import Helper from 'react-redux-helper';
-import models from './models';
+import models from '@models';
 
 const app = new Helper();
-app.router(Routes);
+app.router(router);
 app.reducerMiddleware(function (state, action) {
   if (typeof state === 'object') {
     return { ...state };

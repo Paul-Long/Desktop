@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Desktop</title>
-    <link rel="stylesheet" href="http://localhost:5000/static/bundle.css">
+    <link rel="stylesheet" href="http://localhost:5000/static/main.css">
+    <style>
+        body {background: #000000;}
+    </style>
 </head>
 <body>
 <div id="main"></div>
@@ -11,7 +14,7 @@
 <script>
     (function() {
         const script = document.createElement('script');
-        script.src = 'http://localhost:5000/static/bundle.js';
+        script.src = 'http://localhost:5000/static/main.js';
         document.write(script.outerHTML)
     }())
 </script>
