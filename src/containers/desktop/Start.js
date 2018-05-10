@@ -1,9 +1,13 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import contents from '@constants/contents';
+import StartItem from './StartItem';
 
 type StartProps = {
   prefixCls: string,
   className: string,
-  onMaskClick: Function
+  onMaskClick: Function,
+  dispatch: Function
 }
 
 class Start extends React.PureComponent<StartProps> {
@@ -15,6 +19,12 @@ class Start extends React.PureComponent<StartProps> {
     e.stopPropagation();
   };
 
+  handleOpenTab = ({ path, text }) => {
+    const { dispatch } = this.props;
+    dispatch({ type: 'desktop.hide' });
+    dispatch({ type: 'tabs.open', tab: { tabId: path, text } });
+  };
+
   render() {
     const {
       prefixCls,
@@ -24,7 +34,14 @@ class Start extends React.PureComponent<StartProps> {
     return (
       <div className={className} onClick={this.handleClick}>
         <div className={`${prefixCls}-content`} onClick={this.handleContentClick}>
-
+          {contents.map(c => (
+            <StartItem
+              key={c.path}
+              className={`${prefixCls}-item`}
+              onClick={this.handleOpenTab}
+              item={c}
+            />
+          ))}
         </div>
         <div className={`${prefixCls}-mask`} onClick={onMaskClick} />
       </div>
@@ -32,4 +49,4 @@ class Start extends React.PureComponent<StartProps> {
   }
 }
 
-export default Start;
+export default connect()(Start);

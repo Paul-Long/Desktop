@@ -5,13 +5,11 @@ export default [
       show: false
     },
     reducer: {
-      show(state, action) {
-        state = {...state};
+      show(state) {
         state.show = true;
         return state;
       },
-      hide(state, action) {
-        state = {...state};
+      hide(state) {
         state.show = false;
         return state;
       }

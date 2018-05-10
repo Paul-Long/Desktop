@@ -1,41 +1,62 @@
 import './tabbar.less';
 import React from 'react';
+import { connect } from 'react-redux';
 import Desktop from '@containers/desktop';
 import Tabs from '@components/tabs';
-import contents from '@constants/contents';
 
 type TabBarProps = {
   prefixCls: string,
-  history: Object
+  history: Object,
+  tabs: Object,
+  dispatch: Function
 }
 
 class TabBar extends React.PureComponent<TabBarProps> {
-  state = {
-    active: '/home'
+  componentWillReceiveProps(nextProps) {
+    this.receiveTabs(nextProps, this.props);
+  }
+
+  receiveTabs = (nextProps, props) => {
+    const { tabs: nTabs, history } = nextProps;
+    const { tabs } = props;
+    if (nTabs !== tabs) {
+      if (nTabs.current !== tabs.current) {
+        history.push(nTabs.current);
+      }
+    }
   };
 
-  handleChange = (tabId) => {
-    this.setState({ active: tabId });
-    const { history } = this.props;
-    history.push(tabId);
+  handleChange = (tabId, tab) => {
+    const { dispatch, tabs } = this.props;
+    dispatch({ type: 'desktop.hide' });
+    if (tabs.current !== tabId) {
+      dispatch({ type: 'tabs.change', tabId });
+    }
+  };
+
+  handleCloseTab = (tabId, tab) => {
+    const { dispatch } = this.props;
+    dispatch({ type: 'tabs.close', tab });
   };
 
   render() {
     const {
-      prefixCls
+      prefixCls,
+      tabs
     } = this.props;
-    const {
-      active
-    } = this.state;
     const cls = `${prefixCls}-tabbar`;
     return (
       <div className={cls}>
-        <Desktop prefixCls={prefixCls} className={`${cls}-left`} />
+        <Desktop
+          prefixCls={prefixCls}
+          className={`${cls}-left`}
+        />
         <div className={`${cls}-center`}>
           <Tabs
-            tabs={contents.map(c => ({ tabId: c.path, text: c.text }))}
-            active={active}
+            tabs={tabs.opened}
+            active={tabs.current}
             onChange={this.handleChange}
+            onClose={this.handleCloseTab}
           />
         </div>
         <div className={`${cls}-right`}>
@@ -46,4 +67,10 @@ class TabBar extends React.PureComponent<TabBarProps> {
   }
 }
 
-export default TabBar;
+function mapStateToProps(state) {
+  return {
+    tabs: state.tabs
+  }
+}
+
+export default connect(mapStateToProps)(TabBar);

@@ -6,16 +6,15 @@ export default [
 
     },
     reducer: {
-      add(state, action) {
+      add(state) {
         return state + 1
       },
-      minus(state, action) {
+      minus(state) {
         return state - 1
       }
     },
     subscriptions: {
       setup({ dispatch, history }) {
-        console.log(history);
         return history.listen(({ pathname, query }) => {
           console.log(pathname, query);
         });

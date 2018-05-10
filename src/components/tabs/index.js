@@ -7,7 +7,8 @@ import './tabs.less';
 type TabsProps = {
   tabs: Array,
   active: string,
-  onChange: Function
+  onChange: Function,
+  onClose: Function
 }
 
 class Tabs extends React.PureComponent<TabsProps> {
@@ -24,7 +25,13 @@ class Tabs extends React.PureComponent<TabsProps> {
 
   handleClick = (tab, e) => {
     const { onChange } = this.props;
-    onChange && onChange(tab.tabId);
+    onChange && onChange(tab.tabId, tab);
+  };
+
+  handleClose = (tab, e) => {
+    e.stopPropagation();
+    const { onClose } = this.props;
+    onClose && onClose(tab.tabId, tab);
   };
 
   renderTab = () => {
@@ -35,7 +42,8 @@ class Tabs extends React.PureComponent<TabsProps> {
         active: tab.tabId === active
       }),
       tab,
-      onClick: e => this.handleClick(tab, e)
+      onClick: e => this.handleClick(tab, e),
+      onClose: e => this.handleClose(tab, e)
     }));
   };
 

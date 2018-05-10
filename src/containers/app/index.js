@@ -26,9 +26,8 @@ class App extends React.PureComponent<AppProps> {
 
   componentDidMount() {
     setTimeout(() => {
-      console.log('history push /home');
       this.props.history.push('/home');
-    }, 3000);
+    }, 2000);
   }
 
   render() {

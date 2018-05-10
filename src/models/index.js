@@ -1,9 +1,9 @@
 import count from './count';
-import other from './other';
 import desktop from './desktop';
+import tabs from './tabs';
 
 export default [
   count,
-  other,
-  desktop
+  desktop,
+  tabs
 ]
