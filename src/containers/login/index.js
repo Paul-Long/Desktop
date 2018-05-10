@@ -21,7 +21,7 @@ class Login extends React.PureComponent<LoginProps> {
   }
 
   handleClose = () => {
-    this.ipc.close();
+    this.ipc.send('close');
   };
 
   handleLogin = () => {

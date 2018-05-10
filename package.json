@@ -6,7 +6,7 @@
   "scripts": {
     "hot-server": "node -r babel-register server/dev-server",
     "hot-start": "electron -r babel-register windows/index",
-    "start": "webpack && electron ."
+    "start": "webpack && electron windows/index"
   },
   "repository": {
     "type": "git",
