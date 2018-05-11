@@ -8,7 +8,8 @@ type TabsProps = {
   tabs: Array,
   active: string,
   onChange: Function,
-  onClose: Function
+  onClose: Function,
+  onContextMenu: Function
 }
 
 class Tabs extends React.PureComponent<TabsProps> {
@@ -34,6 +35,10 @@ class Tabs extends React.PureComponent<TabsProps> {
     onClose && onClose(tab.tabId, tab);
   };
 
+  handleContextMenu = (tab, e) => {
+    console.log(tab);
+  };
+
   renderTab = () => {
     const { tabs } = this.props;
     const { active } = this.state;
@@ -43,7 +48,8 @@ class Tabs extends React.PureComponent<TabsProps> {
       }),
       tab,
       onClick: e => this.handleClick(tab, e),
-      onClose: e => this.handleClose(tab, e)
+      onClose: e => this.handleClose(tab, e),
+      onContextMenu: e => this.handleContextMenu(tab, e)
     }));
   };
 

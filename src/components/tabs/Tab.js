@@ -5,7 +5,8 @@ type TabProps = {
   className: string,
   tab: Object,
   onClick: Function,
-  onClose: Function
+  onClose: Function,
+  onContextMenu: Function
 };
 
 function Tab(props: TabProps) {
@@ -13,11 +14,12 @@ function Tab(props: TabProps) {
     className,
     tab,
     onClick,
-    onClose
+    onClose,
+    onContextMenu
   } = props;
-  const {tabId, text} = tab;
+  const { tabId, text } = tab;
   return (
-    <li key={tabId} className={className} onClick={onClick}>
+    <li key={tabId} className={className} onClick={onClick} onContextMenu={onContextMenu}>
       {text}
       <IconButton
         className='ad-tab-close'

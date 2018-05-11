@@ -1,10 +1,12 @@
-import { app, ipcMain, BrowserWindow } from 'electron';
+import { app, BrowserWindow, ipcMain } from 'electron';
 import createMainWindow from './main';
 import createLoginWin from './login';
-import { mainChannels, loginChannels } from './config';
+import createTray from './tray';
+import { loginChannels, mainChannels } from './config';
 
-let mainWin, loginWin;
+let mainWin, loginWin, appIcon;
 app.on('ready', () => {
+  appIcon = createTray();
   mainWin = createMainWindow();
   mainWin.hide();
   loginWin = createLoginWin();
@@ -14,7 +16,6 @@ app.on('ready', () => {
       if (channel === 'logged') {
         loginWin.hide();
         mainWin.show();
-        mainWin.reload();
       } else if (channel === 'close') {
         mainWin.close();
         loginWin.close();
@@ -32,13 +33,15 @@ app.on('ready', () => {
       }
     })
   });
+
   BrowserWindow.addDevToolsExtension('C:\\Users\\baolong.hou\\AppData\\Local\\Google\\Chrome\\User Data\\Default\\Extensions\\lmhkpmbekcpmknklioeibfkpmmfibljd\\2.15.2_0');
   BrowserWindow.addDevToolsExtension('C:\\Users\\baolong.hou\\AppData\\Local\\Google\\Chrome\\User Data\\Default\\Extensions\\fmkadmapgofadopljbjfkapdkoienihi\\3.2.1_0');
 });
 
 app.on('window-all-closed', function () {
   if (process.platform !== 'darwin') {
-    app.quit()
+    appIcon.destroy();
+    app.quit();
   }
 });
 

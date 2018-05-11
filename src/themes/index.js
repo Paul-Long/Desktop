@@ -3,3 +3,4 @@ import './variables.less';
 import './generals.less';
 import './mixins.less';
 import './icons.less';
+import './styles.less';

@@ -1,6 +1,7 @@
 import { BrowserWindow } from 'electron';
 import path from 'path';
 import url from 'url';
+import { iconPath } from '../config';
 
 export default function () {
   let loginWindow = new BrowserWindow({
@@ -8,7 +9,8 @@ export default function () {
     height: 400,
     frame: false,
     titleBarStyle: 'hiddenInset',
-    transparent: true
+    transparent: true,
+    icon: iconPath
   });
   loginWindow.loadURL(url.format({
     pathname: path.join(__dirname, 'index.html'),
