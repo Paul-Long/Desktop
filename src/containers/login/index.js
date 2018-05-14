@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import classNames from 'classnames';
 import IconButton from '@components/iconbutton';
 import Ipc from '@utils/ipc';
@@ -6,7 +7,8 @@ import Input from '@components/input';
 import './login.less';
 
 type LoginProps = {
-  prefixCls: string
+  prefixCls: string,
+  dispatch: Function
 }
 
 class Login extends React.PureComponent<LoginProps> {
@@ -31,7 +33,10 @@ class Login extends React.PureComponent<LoginProps> {
   };
 
   handleLogin = () => {
-    this.ipc.send('logged');
+    const { dispatch } = this.props;
+    const { username, password } = this.state;
+    dispatch({ type: 'user.login', payload: { username, password } })
+    // this.ipc.send('logged');
   };
 
   handleUserNameChange = (event) => {
@@ -64,4 +69,4 @@ class Login extends React.PureComponent<LoginProps> {
   }
 }
 
-export default Login;
+export default connect()(Login);
