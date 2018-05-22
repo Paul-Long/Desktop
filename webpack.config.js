@@ -22,6 +22,7 @@ module.exports = {
       'node_modules'
     ],
     alias: {
+      'react': path.resolve(__dirname, 'node_modules/react-redux-helper/react.js'),
       '@src': path.resolve(__dirname, 'src'),
       '@constants': path.resolve(__dirname, 'src/constants'),
       '@containers': path.resolve(__dirname, 'src/containers'),
