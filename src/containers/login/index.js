@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import IconButton from '@components/iconbutton';
 import Ipc from '@utils/ipc';
 import Input from '@components/input';
+import md5 from 'md5';
 import './login.less';
 
 type LoginProps = {
@@ -35,7 +36,7 @@ class Login extends React.PureComponent<LoginProps> {
   handleLogin = () => {
     const { dispatch } = this.props;
     const { username, password } = this.state;
-    dispatch({ type: 'user.login', payload: { username, password } })
+    dispatch({ type: 'user.login', payload: { userName: username, password: md5(password) } })
     // this.ipc.send('logged');
   };
 
