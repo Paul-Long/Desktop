@@ -12,6 +12,13 @@
         "polyfill": true,
         "regenerator": true
       }
+    ],
+    [
+      "import",
+      {
+        "libraryName": "antd",
+        "style": true
+      }
     ]
   ]
 }

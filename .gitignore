@@ -62,3 +62,4 @@ package-lock.json
 build/
 dist/
 yarn.lock
+.vscode/

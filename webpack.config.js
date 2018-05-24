@@ -32,7 +32,7 @@ module.exports = {
     }
   },
   plugins: [
-    new ExtractTextPlugin({ filename: '[name].css', allChunks: true }),
+    new ExtractTextPlugin({ filename: '[name].css', allChunks: false }),
     new webpack.HotModuleReplacementPlugin()
   ],
   module: {
@@ -44,7 +44,16 @@ module.exports = {
       test: /\.(less|css)$/,
       use: ExtractTextPlugin.extract({
         fallback: 'style-loader',
-        use: ['css-loader', 'postcss-loader', 'less-loader']
+        use: [
+          'css-loader',
+          'postcss-loader',
+          {
+            loader: 'less-loader',
+            options: {
+              modifyVars: require('./src/themes/ant-theme')
+            }
+          }
+        ]
       })
     }]
   }

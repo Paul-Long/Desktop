@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import classNames from 'classnames';
 import IconButton from '@components/iconbutton';
 import Ipc from '@utils/ipc';
-import Input from '@components/input';
+import { Input, Button, message } from 'antd';
 import md5 from 'md5';
 import './login.less';
 
@@ -31,11 +31,13 @@ class Login extends React.PureComponent<LoginProps> {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.login !== this.props.login) {
-      const { success, message } = nextProps.login || {};
+      const { success, message: msg } = nextProps.login || {};
       if (success) {
-        this.ipc.send('logged');
+        message.success('登陆成功', 2, () => {
+          this.ipc.send('logged');
+        });
       } else {
-        alert(message);
+        message.error(msg);
       }
     }
   }
@@ -75,7 +77,7 @@ class Login extends React.PureComponent<LoginProps> {
         />
         <Input value={username} onChange={this.handleUserNameChange} />
         <Input value={password} type='password' onChange={this.handlePasswordChange} />
-        <button className={`${prefixCls}-login-btn`} onClick={this.handleLogin}>登录</button>
+        <Button className={`${prefixCls}-login-btn`} onClick={this.handleLogin}>登录</Button>
       </div>
     )
   }
