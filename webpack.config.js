@@ -2,8 +2,6 @@ const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-const rrh = path.resolve(__dirname, 'node_modules/react-redux-helper/node_modules');
-
 module.exports = {
   mode: 'development',
   devtool: 'eval-source-map',
@@ -24,10 +22,6 @@ module.exports = {
       'node_modules'
     ],
     alias: {
-      'react': path.resolve(rrh, 'react'),
-      'react-dom': path.resolve(rrh, 'react-dom'),
-      'react-router-dom': path.resolve(rrh, 'react-router-dom'),
-      'react-redux': path.resolve(rrh, 'react-redux'),
       '@src': path.resolve(__dirname, 'src'),
       '@constants': path.resolve(__dirname, 'src/constants'),
       '@containers': path.resolve(__dirname, 'src/containers'),

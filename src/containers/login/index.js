@@ -29,6 +29,17 @@ class Login extends React.PureComponent<LoginProps> {
     password: ''
   };
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.login !== this.props.login) {
+      const { success, message } = nextProps.login || {};
+      if (success) {
+        this.ipc.send('logged');
+      } else {
+        alert(message);
+      }
+    }
+  }
+
   handleClose = () => {
     this.ipc.send('close');
   };
@@ -70,4 +81,10 @@ class Login extends React.PureComponent<LoginProps> {
   }
 }
 
-export default connect()(Login);
+function mapStateToProps(state) {
+  return {
+    login: state.user.login
+  }
+}
+
+export default connect(mapStateToProps)(Login);
