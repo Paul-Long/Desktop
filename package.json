@@ -7,7 +7,8 @@
     "hot-server": "node -r babel-register ./server/dev-server",
     "hot-start": "electron -r babel-register .",
     "start": "webpack && electron -r babel-register .",
-    "lint": "eslint ./src/ ./windows "
+    "lint": "eslint --color ./src/ && eslint --color ./src ",
+    "lint-fix": "eslint --fix ./windows && eslint --fix ./src"
   },
   "repository": {
     "type": "git",

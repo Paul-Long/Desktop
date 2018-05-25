@@ -58,7 +58,7 @@ module.exports = {
     "no-new": [0],
     "import/newline-after-import": [0],
     "no-console": [0],
-    "linebreak-style": ["error", "windows"]
+    "linebreak-style": 0
   }
 
 };
