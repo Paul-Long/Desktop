@@ -27,12 +27,12 @@ class Desktop extends React.PureComponent<DesktopProps> {
     const {
       prefixCls,
       className,
-      desktop
+      desktop,
     } = this.props;
     const cls = classNames(`${prefixCls}-desktop`, className);
     const startCls = classNames(
       `${prefixCls}-desktop-start`, {
-        'active': desktop.show
+        active: desktop.show,
       });
     return (
       <div className={cls} onClick={this.handleClick}>
@@ -44,14 +44,14 @@ class Desktop extends React.PureComponent<DesktopProps> {
           onMaskClick={this.handleMaskClick}
         />
       </div>
-    )
+    );
   }
 }
 
 function mapStateToProps(state) {
   return {
-    desktop: state.desktop
-  }
+    desktop: state.desktop,
+  };
 }
 
 export default connect(mapStateToProps)(Desktop);

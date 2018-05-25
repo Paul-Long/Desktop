@@ -29,7 +29,7 @@ class Start extends React.PureComponent<StartProps> {
     const {
       prefixCls,
       className,
-      onMaskClick
+      onMaskClick,
     } = this.props;
     return (
       <div className={className} onClick={this.handleClick}>
@@ -45,7 +45,7 @@ class Start extends React.PureComponent<StartProps> {
         </div>
         <div className={`${prefixCls}-mask`} onClick={onMaskClick} />
       </div>
-    )
+    );
   }
 }
 

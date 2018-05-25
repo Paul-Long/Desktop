@@ -6,14 +6,13 @@ type ClockProps = {
 }
 
 class Clock extends React.Component<ClockProps> {
-  _FORMAT = 'YYYY/MM/DD ddd HH:mm:ss';
   state = {
-    time: moment().format(this._FORMAT)
+    time: moment().format(this._FORMAT),
   };
 
   componentDidMount() {
     setInterval(() => {
-      this.setState({time: moment().format(this._FORMAT)});
+      this.setState({ time: moment().format(this._FORMAT) });
     }, 1000);
   }
 
@@ -21,19 +20,21 @@ class Clock extends React.Component<ClockProps> {
     return nextState.time !== this.state.time;
   }
 
+  _FORMAT = 'YYYY/MM/DD ddd HH:mm:ss';
+
   render() {
     const {
-      className
+      className,
     } = this.props;
     const {
-      time
+      time,
     } = this.state;
     return (
       <div className={className}>
-        <div className='ad-icon-clock' />
+        <div className="ad-icon-clock" />
         <span>{time}</span>
       </div>
-    )
+    );
   }
 }
 

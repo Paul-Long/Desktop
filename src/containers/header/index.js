@@ -1,6 +1,6 @@
-import './header.less';
 import React from 'react';
 import IconButton from '@components/iconbutton';
+import './header.less';
 
 type HeaderProps = {
   prefixCls: string,
@@ -10,7 +10,7 @@ type HeaderProps = {
 
 class Header extends React.PureComponent<HeaderProps> {
   state = {
-    winMax: false
+    winMax: false,
   };
 
   handleMax = () => {
@@ -25,7 +25,7 @@ class Header extends React.PureComponent<HeaderProps> {
     const {
       prefixCls,
       title,
-      ipc
+      ipc,
     } = this.props;
     const cls = `${prefixCls}-header`;
     return (
@@ -35,12 +35,12 @@ class Header extends React.PureComponent<HeaderProps> {
         </div>
         <div className={`${cls}-space`} />
         <div className={`${cls}-action`}>
-          <IconButton className={`${cls}-min`} type='minus' onClick={() => ipc.send('minimize')} />
-          <IconButton className={`${cls}-max`} type='square' onClick={this.handleMax} />
-          <IconButton className={`${cls}-close`} type='close' onClick={() => ipc.send('close')} />
+          <IconButton className={`${cls}-min`} type="minus" onClick={() => ipc.send('minimize')} />
+          <IconButton className={`${cls}-max`} type="square" onClick={this.handleMax} />
+          <IconButton className={`${cls}-close`} type="close" onClick={() => ipc.send('close')} />
         </div>
       </div>
-    )
+    );
   }
 }
 

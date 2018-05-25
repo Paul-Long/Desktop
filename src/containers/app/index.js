@@ -1,4 +1,3 @@
-import './app.less';
 import React from 'react';
 import { Route } from 'react-router-dom';
 import Header from '@containers/header';
@@ -6,6 +5,7 @@ import TabBar from '@containers/tabbar';
 import Footer from '@containers/footer';
 import contents from '@constants/contents';
 import Ipc from '@utils/ipc';
+import './app.less';
 
 type AppProps = {
   prefixCls: string
@@ -13,17 +13,17 @@ type AppProps = {
 
 class App extends React.PureComponent<AppProps> {
   static defaultProps = {
-    prefixCls: 'ad'
+    prefixCls: 'ad',
   };
 
   constructor(props) {
     super(props);
-    const pathname = props.history.location.pathname;
+    const { pathname } = props.history.location;
     if (pathname !== '/') {
       props.history.push('/');
     }
     this.ipc = new Ipc({
-      prefix: 'main'
+      prefix: 'main',
     });
   }
 
@@ -40,13 +40,13 @@ class App extends React.PureComponent<AppProps> {
   render() {
     const {
       prefixCls,
-      history
+      history,
     } = this.props;
     return (
       <div className={prefixCls}>
         <Header
           prefixCls={prefixCls}
-          title='Electron Desktop'
+          title="Electron Desktop"
           ipc={this.ipc}
         />
         <TabBar prefixCls={prefixCls} history={history} />
@@ -59,7 +59,7 @@ class App extends React.PureComponent<AppProps> {
         </div>
         <Footer prefixCls={prefixCls} />
       </div>
-    )
+    );
   }
 }
 

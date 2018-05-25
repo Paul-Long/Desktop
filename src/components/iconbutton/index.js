@@ -18,7 +18,7 @@ function IconButton(props: IconButtonProps) {
     <div className={cls} {...other}>
       <div className={`ad-icon-${type}`} />
     </div>
-  )
+  );
 }
 
 export default IconButton;

@@ -36,25 +36,36 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin()
   ],
   module: {
-    rules: [{
-      test: /\.(js|jsx)$/,
-      exclude: /node_modules/,
-      use: ['babel-loader']
-    }, {
-      test: /\.(less|css)$/,
-      use: ExtractTextPlugin.extract({
-        fallback: 'style-loader',
-        use: [
-          'css-loader',
-          'postcss-loader',
-          {
-            loader: 'less-loader',
-            options: {
-              modifyVars: require('./src/themes/ant-theme')
+    rules: [
+      {
+        enforce: 'pre',
+        test: /\.js$/,
+        exclude: /node_modules/,
+        include: [
+          path.resolve(__dirname, 'src'),
+          path.resolve(__dirname, 'windows')
+        ],
+        use: 'eslint-loader',
+      },
+      {
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        use: ['babel-loader']
+      }, {
+        test: /\.(less|css)$/,
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: [
+            'css-loader',
+            'postcss-loader',
+            {
+              loader: 'less-loader',
+              options: {
+                modifyVars: require('./src/themes/ant-theme')
+              }
             }
-          }
-        ]
-      })
-    }]
+          ]
+        })
+      }]
   }
 };

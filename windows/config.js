@@ -5,10 +5,10 @@ export const mainChannels = [
   'close',
   'minimize',
   'unmaximize',
-  'maximize'
+  'maximize',
 ];
 
 export const loginChannels = [
   'logged',
-  'close'
+  'close',
 ];

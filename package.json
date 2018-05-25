@@ -6,7 +6,8 @@
   "scripts": {
     "hot-server": "node -r babel-register ./server/dev-server",
     "hot-start": "electron -r babel-register .",
-    "start": "webpack && electron -r babel-register ."
+    "start": "webpack && electron -r babel-register .",
+    "lint": "eslint ./src/ ./windows "
   },
   "repository": {
     "type": "git",
@@ -36,8 +37,9 @@
   },
   "devDependencies": {
     "autoprefixer": "^8.4.1",
-    "babel": "^6.23.0",
+    "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
+    "babel-eslint": "^8.2.3",
     "babel-loader": "^7.1.4",
     "babel-plugin-import": "^1.7.0",
     "babel-plugin-transform-runtime": "^6.23.0",
@@ -50,6 +52,14 @@
     "css-loader": "^0.28.11",
     "cssnano": "^3.10.0",
     "electron-package": "^0.1.0",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-loader": "^2.0.0",
+    "eslint-plugin-babel": "^5.1.0",
+    "eslint-plugin-flowtype": "^2.47.1",
+    "eslint-plugin-import": "^2.11.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.8.2",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "is-electron-renderer": "^2.0.1",
     "isomorphic-fetch": "^2.2.1",

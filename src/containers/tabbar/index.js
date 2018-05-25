@@ -1,14 +1,13 @@
-import './tabbar.less';
 import React from 'react';
 import { connect } from 'react-redux';
 import Desktop from '@containers/desktop';
 import Tabs from '@components/tabs';
+import './tabbar.less';
 
 type TabBarProps = {
   prefixCls: string,
-  history: Object,
   tabs: Object,
-  dispatch: Function
+  dispatch: Function,
 }
 
 class TabBar extends React.PureComponent<TabBarProps> {
@@ -26,7 +25,7 @@ class TabBar extends React.PureComponent<TabBarProps> {
     }
   };
 
-  handleChange = (tabId, tab) => {
+  handleChange = (tabId) => {
     const { dispatch, tabs } = this.props;
     dispatch({ type: 'desktop.hide' });
     if (tabs.current !== tabId) {
@@ -42,7 +41,7 @@ class TabBar extends React.PureComponent<TabBarProps> {
   render() {
     const {
       prefixCls,
-      tabs
+      tabs,
     } = this.props;
     const cls = `${prefixCls}-tabbar`;
     return (
@@ -63,14 +62,14 @@ class TabBar extends React.PureComponent<TabBarProps> {
           联系客服
         </div>
       </div>
-    )
+    );
   }
 }
 
 function mapStateToProps(state) {
   return {
-    tabs: state.tabs
-  }
+    tabs: state.tabs,
+  };
 }
 
 export default connect(mapStateToProps)(TabBar);

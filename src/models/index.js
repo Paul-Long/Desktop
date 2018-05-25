@@ -7,5 +7,5 @@ export default [
   count,
   desktop,
   tabs,
-  user
-]
+  user,
+];

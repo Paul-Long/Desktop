@@ -3,7 +3,7 @@ export default [
     namespace: 'tabs',
     state: {
       opened: [{ tabId: '/home', text: '首页' }],
-      current: '/home'
+      current: '/home',
     },
     reducer: {
       change(state, action) {
@@ -12,7 +12,7 @@ export default [
         return state;
       },
       open(state, action) {
-        const { tab, isNew } = action;
+        const { tab } = action;
         state.opened = [...state.opened, tab];
         state.current = tab.tabId;
         return state;
@@ -37,7 +37,7 @@ export default [
           state.current = current;
         }
         return state;
-      }
-    }
-  }
-]
+      },
+    },
+  },
+];

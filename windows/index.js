@@ -4,7 +4,9 @@ import createLoginWin from './login';
 import createTray from './tray';
 import { loginChannels, mainChannels } from './config';
 
-let mainWin, loginWin, appIcon;
+let mainWin;
+let loginWin;
+let appIcon;
 app.on('ready', () => {
   appIcon = createTray();
   mainWin = createMainWindow();
@@ -31,23 +33,23 @@ app.on('ready', () => {
       } else {
         mainWin[channel]();
       }
-    })
+    });
   });
 
   BrowserWindow.addDevToolsExtension('C:\\Users\\baolong.hou\\AppData\\Local\\Google\\Chrome\\User Data\\Default\\Extensions\\lmhkpmbekcpmknklioeibfkpmmfibljd\\2.15.2_0');
   BrowserWindow.addDevToolsExtension('C:\\Users\\baolong.hou\\AppData\\Local\\Google\\Chrome\\User Data\\Default\\Extensions\\fmkadmapgofadopljbjfkapdkoienihi\\3.2.1_0');
 });
 
-app.on('window-all-closed', function () {
+app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
     appIcon.destroy();
     app.quit();
   }
 });
 
-app.on('activate', function () {
+app.on('activate', () => {
   if (loginWin === null) {
-    loginWin = createLoginWin()
+    loginWin = createLoginWin();
   }
   if (mainWin === null) {
     mainWin = createMainWindow();

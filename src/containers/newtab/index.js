@@ -6,7 +6,7 @@ class NewTab extends React.PureComponent {
       <div>
         <h1>New Tab</h1>
       </div>
-    )
+    );
   }
 }
 

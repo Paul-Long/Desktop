@@ -2,7 +2,7 @@ export default [
   {
     namespace: 'desktop',
     state: {
-      show: false
+      show: false,
     },
     reducer: {
       show(state) {
@@ -12,7 +12,7 @@ export default [
       hide(state) {
         state.show = false;
         return state;
-      }
-    }
-  }
-]
+      },
+    },
+  },
+];

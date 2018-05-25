@@ -14,19 +14,19 @@ type LoginProps = {
 
 class Login extends React.PureComponent<LoginProps> {
   static defaultProps = {
-    prefixCls: 'ad'
+    prefixCls: 'ad',
   };
 
   constructor(props) {
     super(props);
     this.ipc = new Ipc({
-      prefix: 'login'
+      prefix: 'login',
     });
   }
 
   state = {
     username: '',
-    password: ''
+    password: '',
   };
 
   componentWillReceiveProps(nextProps) {
@@ -49,7 +49,7 @@ class Login extends React.PureComponent<LoginProps> {
   handleLogin = () => {
     const { dispatch } = this.props;
     const { username, password } = this.state;
-    dispatch({ type: 'user.login', payload: { userName: username, password: md5(password) } })
+    dispatch({ type: 'user.login', payload: { userName: username, password: md5(password) } });
     // this.ipc.send('logged');
   };
 
@@ -65,28 +65,28 @@ class Login extends React.PureComponent<LoginProps> {
     const { prefixCls } = this.props;
     const {
       username,
-      password
+      password,
     } = this.state;
     const loginCls = classNames(`${prefixCls}-login`);
     return (
       <div className={loginCls}>
         <IconButton
           className={`${prefixCls}-login-close`}
-          type='close'
+          type="close"
           onClick={this.handleClose}
         />
         <Input value={username} onChange={this.handleUserNameChange} />
-        <Input value={password} type='password' onChange={this.handlePasswordChange} />
+        <Input value={password} type="password" onChange={this.handlePasswordChange} />
         <Button className={`${prefixCls}-login-btn`} onClick={this.handleLogin}>登录</Button>
       </div>
-    )
+    );
   }
 }
 
 function mapStateToProps(state) {
   return {
-    login: state.user.login
-  }
+    login: state.user.login,
+  };
 }
 
 export default connect(mapStateToProps)(Login);

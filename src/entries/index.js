@@ -1,9 +1,9 @@
-import '../themes/index';
 import router from '@routes';
 import Helper from 'react-redux-helper';
 import models from '@models';
+import '../themes/index';
 
-const onReducer = (state, action) => {
+const onReducer = (state) => {
   if (typeof state === 'object') {
     return { ...state };
   } else if (state instanceof Array) {
@@ -13,7 +13,7 @@ const onReducer = (state, action) => {
 };
 
 const app = new Helper({
-  onReducer
+  onReducer,
 });
 app.router(router);
 app.models(models);

@@ -7,18 +7,18 @@ export default [
     },
     reducer: {
       add(state) {
-        return state + 1
+        return state + 1;
       },
       minus(state) {
-        return state - 1
-      }
+        return state - 1;
+      },
     },
     subscriptions: {
-      setup({ dispatch, history }) {
+      setup({ history }) {
         return history.listen(({ pathname, query }) => {
           console.log(pathname, query);
         });
-      }
-    }
-  }
-]
+      },
+    },
+  },
+];

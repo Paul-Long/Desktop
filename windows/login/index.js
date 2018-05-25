@@ -10,16 +10,16 @@ export default function () {
     frame: false,
     titleBarStyle: 'hiddenInset',
     transparent: true,
-    icon: iconPath
+    icon: iconPath,
   });
   loginWindow.loadURL(url.format({
     pathname: path.join(__dirname, 'index.html'),
     protocol: 'file:',
-    slashes: true
+    slashes: true,
   }));
   loginWindow.webContents.openDevTools();
-  loginWindow.on('closed', function () {
-    loginWindow = null
+  loginWindow.on('closed', () => {
+    loginWindow = null;
   });
   return loginWindow;
-};
+}

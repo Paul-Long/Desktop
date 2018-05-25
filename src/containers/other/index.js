@@ -6,7 +6,7 @@ class Other extends React.PureComponent {
       <div>
         <h1>Other</h1>
       </div>
-    )
+    );
   }
 }
 

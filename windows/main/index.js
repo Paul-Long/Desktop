@@ -10,16 +10,16 @@ export default function () {
     frame: false,
     titleBarStyle: 'hiddenInset',
     transparent: true,
-    icon: iconPath
+    icon: iconPath,
   });
   mainWindow.loadURL(url.format({
     pathname: path.join(__dirname, 'index.html'),
     protocol: 'file:',
-    slashes: true
+    slashes: true,
   }));
   mainWindow.webContents.openDevTools();
-  mainWindow.on('closed', function () {
-    mainWindow = null
+  mainWindow.on('closed', () => {
+    mainWindow = null;
   });
   return mainWindow;
-};
+}

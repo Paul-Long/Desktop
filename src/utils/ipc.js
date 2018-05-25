@@ -6,7 +6,7 @@ type Option = {
 
 function Ipc(opts: Option) {
   const {
-    prefix
+    prefix,
   } = opts;
 
   function send(channel: string) {
@@ -14,8 +14,8 @@ function Ipc(opts: Option) {
   }
 
   return {
-    send
-  }
+    send,
+  };
 }
 
 export default Ipc;
