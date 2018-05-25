@@ -2,20 +2,14 @@ module.exports = {
   "parser": "babel-eslint",
   "env": {
     "browser": true,
-    "commonjs": true,
-    "es6": true
+    "jest": true
   },
   "extends": "airbnb",
   "parserOptions": {
     "ecmaFeatures": {
-      "experimentalObjectRestSpread": true,
-      "jsx": true
-    },
-    "sourceType": "module"
+      "experimentalObjectRestSpread": true
+    }
   },
-  "plugins": [
-    "react",
-  ],
   "rules": {
     "jsx-a11y/href-no-hash": [0],
     "jsx-a11y/click-events-have-key-events": [0],
@@ -23,6 +17,7 @@ module.exports = {
       "components": ["Link"],
       "specialLink": ["to"]
     }],
+    "jsx-a11y/no-noninteractive-element-interactions": [0],
     "generator-star-spacing": [0],
     "consistent-return": [0],
     "react/react-in-jsx-scope": [0],
@@ -62,7 +57,8 @@ module.exports = {
     "class-methods-use-this": [0],
     "no-new": [0],
     "import/newline-after-import": [0],
-    "no-console": [0]
+    "no-console": [0],
+    "linebreak-style": ["error", "windows"]
   }
 
 };
