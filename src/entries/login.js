@@ -1,9 +1,9 @@
 import router from '@routes/login';
 import Helper from 'react-redux-helper';
 import user from '@models/user';
-import '../themes/index';
+// import '../themes/index';
 
-const onEffect = (sagaWithCatch, sagaEffects, model, key) => {
+function onEffect(sagaWithCatch, sagaEffects, model, key) {
   console.log(sagaWithCatch, sagaEffects, model, key);
   return function* (action) {
     try {
@@ -12,7 +12,7 @@ const onEffect = (sagaWithCatch, sagaEffects, model, key) => {
       throw new Error(err);
     }
   };
-};
+}
 
 const login = new Helper({
   onEffect,
